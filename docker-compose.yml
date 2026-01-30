@@ -43,8 +43,6 @@ services:
 
 networks:
   looklook_net:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
+    external: true
+    name: go-zero-looklook_looklook_net  # 确保这个名称与实际网络名称一致
 
