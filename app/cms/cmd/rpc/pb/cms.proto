@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+
+package pb;
+
+//model
+message Article {
+  int64 id = 1;
+  string title = 2;
+  string content = 3;
+  string publishTime = 4;
+  string category = 5;
+  int64 likeCount = 6;
+  int64 authorId = 7;
+  string coverImage = 8;
+  int64 status = 9;
+}
+
+//req 、resp
+message CreateArticleReq {
+  string title = 1;
+  string content = 2;
+  string category = 3;
+  int64 authorId = 4;
+  string coverImage = 5;
+}
+message CreateArticleResp {
+  int64 id = 1;
+}
+
+message UpdateArticleReq {
+  int64 id = 1;
+  string title = 2;
+  string content = 3;
+  string category = 4;
+  string coverImage = 5;
+}
+message UpdateArticleResp {
+  bool success = 1;
+}
+
+message PublishArticleReq {
+  int64 id = 1;
+  int64 authorId = 2;
+}
+message PublishArticleResp {
+  bool success = 1;
+}
+
+message GetArticleDetailReq {
+  int64 id = 1;
+}
+message GetArticleDetailResp {
+  Article article = 1;
+}
+
+message GetArticleListReq {
+  string category = 1;
+  int64 page = 2;
+  int64 pageSize = 3;
+}
+message GetArticleListResp {
+  repeated Article list = 1;
+  int64 total = 2;
+}
+
+message LikeArticleReq {
+  int64 id = 1;
+}
+message LikeArticleResp {
+  int64 likeCount = 1;
+}
+
+message DeleteArticleReq {
+  int64 id = 1;
+  int64 authorId = 2;
+}
+message DeleteArticleResp {
+  bool success = 1;
+}
+
+//service
+service cms {
+  rpc createArticle(CreateArticleReq) returns(CreateArticleResp);
+  rpc updateArticle(UpdateArticleReq) returns(UpdateArticleResp);
+  rpc publishArticle(PublishArticleReq) returns(PublishArticleResp);
+  rpc getArticleDetail(GetArticleDetailReq) returns(GetArticleDetailResp);
+  rpc getArticleList(GetArticleListReq) returns(GetArticleListResp);
+  rpc likeArticle(LikeArticleReq) returns(LikeArticleResp);
+  rpc deleteArticle(DeleteArticleReq) returns(DeleteArticleResp);
+}
