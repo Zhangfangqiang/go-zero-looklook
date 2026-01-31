@@ -1,0 +1,10 @@
+/Users/a111/go/pkg/mod/github.com/zeromicro/go-zero@v1.9.4/core/discov/internal/etcdclient_mock.go:17:2: missing go.sum entry for module providing package go.uber.org/mock/gomock (imported by github.com/zeromicro/go-zero/core/discov/internal); to add:
+	go get github.com/zeromicro/go-zero/core/discov/internal@v1.9.4
+/Users/a111/go/pkg/mod/github.com/go-openapi/swag@v0.25.4/cmdutils_iface.go:6:8: missing go.sum entry for module providing package github.com/go-openapi/swag/cmdutils (imported by github.com/go-openapi/swag); to add:
+	go get github.com/go-openapi/swag@v0.25.4
+/Users/a111/go/pkg/mod/github.com/go-openapi/swag@v0.25.4/fileutils_iface.go:6:8: missing go.sum entry for module providing package github.com/go-openapi/swag/fileutils (imported by github.com/go-openapi/swag); to add:
+	go get github.com/go-openapi/swag@v0.25.4
+/Users/a111/go/pkg/mod/github.com/go-openapi/swag@v0.25.4/mangling_iface.go:6:8: missing go.sum entry for module providing package github.com/go-openapi/swag/mangling (imported by github.com/go-openapi/swag); to add:
+	go get github.com/go-openapi/swag@v0.25.4
+/Users/a111/go/pkg/mod/github.com/go-openapi/swag@v0.25.4/netutils_iface.go:6:8: missing go.sum entry for module providing package github.com/go-openapi/swag/netutils (imported by github.com/go-openapi/swag); to add:
+	go get github.com/go-openapi/swag@v0.25.4
