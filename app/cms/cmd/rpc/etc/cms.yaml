@@ -10,7 +10,7 @@ JwtAuth:
 #Monitoring
 Prometheus:
   Host: 0.0.0.0
-  Port: 4011
+  Port: 4013
   Path: /metrics
 
 #Link Tracking

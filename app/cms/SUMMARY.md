@@ -292,8 +292,8 @@ go run cms.go -f etc/cms.yaml
 
 - CMS API: `1005`
 - CMS RPC: `2005`
-- Prometheus (API): `4010`
-- Prometheus (RPC): `4011`
+- Prometheus (API): `4012`
+- Prometheus (RPC): `4013`
 
 ## 📌 注意事项
 

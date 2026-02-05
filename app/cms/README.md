@@ -204,7 +204,7 @@ JwtAuth:
 
 Prometheus:
   Host: 0.0.0.0
-  Port: 4010
+  Port: 4012
   Path: /metrics
 
 Telemetry:
@@ -231,7 +231,7 @@ Mode: dev
 
 Prometheus:
   Host: 0.0.0.0
-  Port: 4011
+  Port: 4013
   Path: /metrics
 
 Telemetry:

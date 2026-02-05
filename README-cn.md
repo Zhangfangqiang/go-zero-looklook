@@ -190,10 +190,24 @@ go-zero 微服务: https://github.com/zeromicro/go-zero
 dtm分布式事务：https://github.com/dtm-labs/dtm
 
 
+## 常用命令速查
 
+```bash
+# 使用 Docker 启动所有服务
+docker-compose -f docker-compose-env.yml up -d && docker-compose up -d
 
+# 检查 Docker 服务
+docker ps
 
-## 赞赏
+# 停止所有服务
+docker-compose down && docker-compose -f docker-compose-env.yml down
 
-![image-20220124142937169](./doc/chinese/images/1/info.jpg)
+# 测试 API
+curl -X POST "http://127.0.0.1:8888/cms/v1/article/list" \
+  -H "Content-Type: application/json" \
+  -d '{"page": 1, "pageSize": 10}'
 
+# 查看日志
+tail -f app/cms/cmd/api/cms-api.log
+tail -f app/cms/cmd/rpc/cms-rpc.log
+```
