@@ -41,20 +41,20 @@ type (
 	}
 
 	Article struct {
-		Id          int64     `db:"id"`           // 文章id
-		CreateTime  time.Time `db:"create_time"`  // 创建时间
-		UpdateTime  time.Time `db:"update_time"`  // 更新时间
-		DeleteTime  time.Time `db:"delete_time"`  // 删除时间
-		DelState    int64     `db:"del_state"`    // 删除状态 0:未删除 1:已删除
-		Version     int64     `db:"version"`      // 版本号
-		Title       string    `db:"title"`        // 文章标题
-		Content     string    `db:"content"`      // 文章内容
-		PublishTime time.Time `db:"publish_time"` // 文章发布时间
-		Category    string    `db:"category"`     // 文章分类
-		LikeCount   int64     `db:"like_count"`   // 文章点赞数量
-		AuthorId    int64     `db:"author_id"`    // 作者id
-		CoverImage  string    `db:"cover_image"`  // 封面图片
-		Status      int64     `db:"status"`       // 状态 0:草稿 1:已发布 2:已下架
+		Id          int64        `db:"id"`           // 文章id
+		CreateTime  time.Time    `db:"create_time"`  // 创建时间
+		UpdateTime  time.Time    `db:"update_time"`  // 更新时间
+		DeleteTime  sql.NullTime `db:"delete_time"`  // 删除时间
+		DelState    int64        `db:"del_state"`    // 删除状态 0:未删除 1:已删除
+		Version     int64        `db:"version"`      // 版本号
+		Title       string       `db:"title"`        // 文章标题
+		Content     string       `db:"content"`      // 文章内容
+		PublishTime time.Time    `db:"publish_time"` // 文章发布时间
+		Category    string       `db:"category"`     // 文章分类
+		LikeCount   int64        `db:"like_count"`   // 文章点赞数量
+		AuthorId    int64        `db:"author_id"`    // 作者id
+		CoverImage  string       `db:"cover_image"`  // 封面图片
+		Status      int64        `db:"status"`       // 状态 0:草稿 1:已发布 2:已下架
 	}
 )
 

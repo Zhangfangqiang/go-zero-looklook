@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"database/sql"
 	"time"
 
 	"looklook/app/cms/cmd/rpc/internal/svc"
@@ -37,6 +38,7 @@ func (l *CreateArticleLogic) CreateArticle(in *pb.CreateArticleReq) (*pb.CreateA
 		Status:      0, // 草稿状态
 		LikeCount:   0,
 		DelState:    0,
+		DeleteTime:  sql.NullTime{Valid: false}, // 未删除，DeleteTime为NULL
 		Version:     0,
 	}
 

@@ -25,7 +25,7 @@ CREATE TABLE `article` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '文章id',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `delete_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '删除时间',
+  `delete_time` datetime DEFAULT NULL COMMENT '删除时间',
   `del_state` tinyint NOT NULL DEFAULT '0' COMMENT '删除状态 0:未删除 1:已删除',
   `version` bigint NOT NULL DEFAULT '0' COMMENT '版本号',
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '文章标题',

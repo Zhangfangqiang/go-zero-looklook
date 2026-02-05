@@ -31,6 +31,8 @@ func NewCreateArticleLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Cre
 }
 
 func (l *CreateArticleLogic) CreateArticle(req *types.CreateArticleReq) (resp *types.CreateArticleResp, err error) {
+	println(req, "zfzf")
+
 	// 从context中获取当前登录用户ID
 	userId := ctxdata.GetUidFromCtx(l.ctx)
 
