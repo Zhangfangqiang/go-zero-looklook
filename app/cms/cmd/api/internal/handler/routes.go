@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	article "looklook/app/cms/cmd/api/internal/handler/article"
+	clearing "looklook/app/cms/cmd/api/internal/handler/clearing"
 	"looklook/app/cms/cmd/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
@@ -62,6 +63,55 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Method:  http.MethodPost,
 				Path:    "/article/update",
 				Handler: article.UpdateArticleHandler(serverCtx),
+			},
+		},
+		rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),
+		rest.WithPrefix("/cms/v1"),
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				// 获取出清数据详情
+				Method:  http.MethodPost,
+				Path:    "/clearing/detail",
+				Handler: clearing.ClearingDataDetailHandler(serverCtx),
+			},
+			{
+				// 获取出清数据列表
+				Method:  http.MethodPost,
+				Path:    "/clearing/list",
+				Handler: clearing.ClearingDataListHandler(serverCtx),
+			},
+		},
+		rest.WithPrefix("/cms/v1"),
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				// 批量创建出清数据
+				Method:  http.MethodPost,
+				Path:    "/clearing/batch-create",
+				Handler: clearing.BatchCreateClearingDataHandler(serverCtx),
+			},
+			{
+				// 创建出清数据
+				Method:  http.MethodPost,
+				Path:    "/clearing/create",
+				Handler: clearing.CreateClearingDataHandler(serverCtx),
+			},
+			{
+				// 删除出清数据
+				Method:  http.MethodPost,
+				Path:    "/clearing/delete",
+				Handler: clearing.DeleteClearingDataHandler(serverCtx),
+			},
+			{
+				// 更新出清数据
+				Method:  http.MethodPost,
+				Path:    "/clearing/update",
+				Handler: clearing.UpdateClearingDataHandler(serverCtx),
 			},
 		},
 		rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),

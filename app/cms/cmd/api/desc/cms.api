@@ -10,10 +10,10 @@ info (
 
 import (
 	"article/article.api"
+	"clearing/clearing.api"
 )
 
-//============================> cms v1 <============================
-//no need login - 不需要登录的接口
+// ========== 不需要登录的接口 ==========
 @server (
 	prefix: cms/v1
 	group:  article
@@ -28,7 +28,21 @@ service cms {
 	post /article/detail (ArticleDetailReq) returns (ArticleDetailResp)
 }
 
-//need login - 需要登录的接口
+@server (
+	prefix: cms/v1
+	group:  clearing
+)
+service cms {
+	@doc "获取出清数据列表"
+	@handler clearingDataList
+	post /clearing/list (ClearingDataListReq) returns (ClearingDataListResp)
+
+	@doc "获取出清数据详情"
+	@handler clearingDataDetail
+	post /clearing/detail (ClearingDataDetailReq) returns (ClearingDataDetailResp)
+}
+
+// ========== 需要登录的接口 ==========
 @server (
 	prefix: cms/v1
 	group:  article
@@ -54,5 +68,28 @@ service cms {
 	@doc "点赞文章"
 	@handler likeArticle
 	post /article/like (LikeArticleReq) returns (LikeArticleResp)
+}
+
+@server (
+	prefix: cms/v1
+	group:  clearing
+	jwt:    JwtAuth
+)
+service cms {
+	@doc "创建出清数据"
+	@handler createClearingData
+	post /clearing/create (CreateClearingDataReq) returns (CreateClearingDataResp)
+
+	@doc "批量创建出清数据"
+	@handler batchCreateClearingData
+	post /clearing/batch-create (BatchCreateClearingDataReq) returns (BatchCreateClearingDataResp)
+
+	@doc "更新出清数据"
+	@handler updateClearingData
+	post /clearing/update (UpdateClearingDataReq) returns (UpdateClearingDataResp)
+
+	@doc "删除出清数据"
+	@handler deleteClearingData
+	post /clearing/delete (DeleteClearingDataReq) returns (DeleteClearingDataResp)
 }
 

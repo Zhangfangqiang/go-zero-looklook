@@ -34,6 +34,56 @@ type ArticleListResp struct {
 	Total int64     `json:"total"`
 }
 
+type BatchCreateClearingDataReq struct {
+	DataList []CreateClearingDataReq `json:"dataList"`
+}
+
+type BatchCreateClearingDataResp struct {
+	SuccessCount int64 `json:"successCount"`
+	FailedCount  int64 `json:"failedCount"`
+}
+
+type ClearingData struct {
+	Id                     int64   `json:"id"`
+	ProvinceId             int64   `json:"provinceId"`
+	CompanyId              string  `json:"companyId"`
+	CompanyName            string  `json:"companyName"`
+	UnitId                 string  `json:"unitId"`
+	UnitName               string  `json:"unitName"`
+	TargetDate             string  `json:"targetDate"`
+	Timeperiod             string  `json:"timeperiod"`
+	DayaheadClearingEnergy float64 `json:"dayaheadClearingEnergy"`
+	DayaheadClearingPrice  float64 `json:"dayaheadClearingPrice"`
+	RealtimeClearingEnergy float64 `json:"realtimeClearingEnergy"`
+	RealtimeClearingPrice  float64 `json:"realtimeClearingPrice"`
+	DayaheadBidPower       float64 `json:"dayaheadBidPower"`
+	RealtimeBidPower       float64 `json:"realtimeBidPower"`
+	ActualEnergy           float64 `json:"actualEnergy"`
+	ActualPower            float64 `json:"actualPower"`
+	CreateTime             string  `json:"createTime"`
+	UpdateTime             string  `json:"updateTime"`
+}
+
+type ClearingDataDetailReq struct {
+	Id int64 `json:"id"`
+}
+
+type ClearingDataDetailResp struct {
+	ClearingData ClearingData `json:"clearingData"`
+}
+
+type ClearingDataListReq struct {
+	CompanyId  string `json:"companyId,optional"`
+	TargetDate string `json:"targetDate,optional"` // format: YYYY-MM-DD
+	Page       int64  `json:"page,default=1"`
+	PageSize   int64  `json:"pageSize,default=10"`
+}
+
+type ClearingDataListResp struct {
+	List  []ClearingData `json:"list"`
+	Total int64          `json:"total"`
+}
+
 type CreateArticleReq struct {
 	Title      string `json:"title"`
 	Content    string `json:"content"`
@@ -45,11 +95,41 @@ type CreateArticleResp struct {
 	Id int64 `json:"id"`
 }
 
+type CreateClearingDataReq struct {
+	ProvinceId             int64   `json:"provinceId"`
+	CompanyId              string  `json:"companyId"`
+	CompanyName            string  `json:"companyName"`
+	UnitId                 string  `json:"unitId"`
+	UnitName               string  `json:"unitName"`
+	TargetDate             string  `json:"targetDate"` // format: YYYY-MM-DD
+	Timeperiod             string  `json:"timeperiod"`
+	DayaheadClearingEnergy float64 `json:"dayaheadClearingEnergy,optional"`
+	DayaheadClearingPrice  float64 `json:"dayaheadClearingPrice,optional"`
+	RealtimeClearingEnergy float64 `json:"realtimeClearingEnergy,optional"`
+	RealtimeClearingPrice  float64 `json:"realtimeClearingPrice,optional"`
+	DayaheadBidPower       float64 `json:"dayaheadBidPower,optional"`
+	RealtimeBidPower       float64 `json:"realtimeBidPower,optional"`
+	ActualEnergy           float64 `json:"actualEnergy,optional"`
+	ActualPower            float64 `json:"actualPower,optional"`
+}
+
+type CreateClearingDataResp struct {
+	Id int64 `json:"id"`
+}
+
 type DeleteArticleReq struct {
 	Id int64 `json:"id"`
 }
 
 type DeleteArticleResp struct {
+	Success bool `json:"success"`
+}
+
+type DeleteClearingDataReq struct {
+	Id int64 `json:"id"`
+}
+
+type DeleteClearingDataResp struct {
 	Success bool `json:"success"`
 }
 
@@ -78,5 +158,21 @@ type UpdateArticleReq struct {
 }
 
 type UpdateArticleResp struct {
+	Success bool `json:"success"`
+}
+
+type UpdateClearingDataReq struct {
+	Id                     int64   `json:"id"`
+	DayaheadClearingEnergy float64 `json:"dayaheadClearingEnergy,optional"`
+	DayaheadClearingPrice  float64 `json:"dayaheadClearingPrice,optional"`
+	RealtimeClearingEnergy float64 `json:"realtimeClearingEnergy,optional"`
+	RealtimeClearingPrice  float64 `json:"realtimeClearingPrice,optional"`
+	DayaheadBidPower       float64 `json:"dayaheadBidPower,optional"`
+	RealtimeBidPower       float64 `json:"realtimeBidPower,optional"`
+	ActualEnergy           float64 `json:"actualEnergy,optional"`
+	ActualPower            float64 `json:"actualPower,optional"`
+}
+
+type UpdateClearingDataResp struct {
 	Success bool `json:"success"`
 }
