@@ -208,6 +208,5 @@ curl -X POST "http://127.0.0.1:8888/cms/v1/article/list" \
   -d '{"page": 1, "pageSize": 10}'
 
 # 查看日志
-tail -f app/cms/cmd/api/cms-api.log
-tail -f app/cms/cmd/rpc/cms-rpc.log
+docker exec looklook cat app/cms/cmd/api/cms-api.log 2>&1 | tail -50
 ```

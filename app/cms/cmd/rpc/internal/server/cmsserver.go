@@ -57,3 +57,33 @@ func (s *CmsServer) DeleteArticle(ctx context.Context, in *pb.DeleteArticleReq) 
 	l := logic.NewDeleteArticleLogic(ctx, s.svcCtx)
 	return l.DeleteArticle(in)
 }
+
+func (s *CmsServer) CreateClearingData(ctx context.Context, in *pb.CreateClearingDataReq) (*pb.CreateClearingDataResp, error) {
+	l := logic.NewCreateClearingDataLogic(ctx, s.svcCtx)
+	return l.CreateClearingData(in)
+}
+
+func (s *CmsServer) UpdateClearingData(ctx context.Context, in *pb.UpdateClearingDataReq) (*pb.UpdateClearingDataResp, error) {
+	l := logic.NewUpdateClearingDataLogic(ctx, s.svcCtx)
+	return l.UpdateClearingData(in)
+}
+
+func (s *CmsServer) GetClearingDataDetail(ctx context.Context, in *pb.GetClearingDataDetailReq) (*pb.GetClearingDataDetailResp, error) {
+	l := logic.NewGetClearingDataDetailLogic(ctx, s.svcCtx)
+	return l.GetClearingDataDetail(in)
+}
+
+func (s *CmsServer) GetClearingDataList(ctx context.Context, in *pb.GetClearingDataListReq) (*pb.GetClearingDataListResp, error) {
+	l := logic.NewGetClearingDataListLogic(ctx, s.svcCtx)
+	return l.GetClearingDataList(in)
+}
+
+func (s *CmsServer) DeleteClearingData(ctx context.Context, in *pb.DeleteClearingDataReq) (*pb.DeleteClearingDataResp, error) {
+	l := logic.NewDeleteClearingDataLogic(ctx, s.svcCtx)
+	return l.DeleteClearingData(in)
+}
+
+func (s *CmsServer) BatchCreateClearingData(ctx context.Context, in *pb.BatchCreateClearingDataReq) (*pb.BatchCreateClearingDataResp, error) {
+	l := logic.NewBatchCreateClearingDataLogic(ctx, s.svcCtx)
+	return l.BatchCreateClearingData(in)
+}

@@ -21,7 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// model
 type Article struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
@@ -129,8 +128,8 @@ func (x *Article) GetStatus() int64 {
 	}
 	return 0
 }
+//ProvinceId  int64                  `protobuf:"varint,1,opt,name=provinceId,proto3" json:"provinceId"`
 
-// req 、resp
 type CreateArticleReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title"`
@@ -851,6 +850,930 @@ func (x *DeleteArticleResp) GetSuccess() bool {
 	return false
 }
 
+type ClearingData struct {
+	state                  protoimpl.MessageState `protogen:"open.v1"`
+	Id                     int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
+	ProvinceId             int64                  `protobuf:"varint,2,opt,name=provinceId,proto3" json:"provinceId"`
+	CompanyId              string                 `protobuf:"bytes,3,opt,name=companyId,proto3" json:"companyId"`
+	CompanyName            string                 `protobuf:"bytes,4,opt,name=companyName,proto3" json:"companyName"`
+	UnitId                 string                 `protobuf:"bytes,5,opt,name=unitId,proto3" json:"unitId"`
+	UnitName               string                 `protobuf:"bytes,6,opt,name=unitName,proto3" json:"unitName"`
+	TargetDate             string                 `protobuf:"bytes,7,opt,name=targetDate,proto3" json:"targetDate"`
+	Timeperiod             string                 `protobuf:"bytes,8,opt,name=timeperiod,proto3" json:"timeperiod"`
+	DayaheadClearingEnergy float64                `protobuf:"fixed64,9,opt,name=dayaheadClearingEnergy,proto3" json:"dayaheadClearingEnergy"`
+	DayaheadClearingPrice  float64                `protobuf:"fixed64,10,opt,name=dayaheadClearingPrice,proto3" json:"dayaheadClearingPrice"`
+	RealtimeClearingEnergy float64                `protobuf:"fixed64,11,opt,name=realtimeClearingEnergy,proto3" json:"realtimeClearingEnergy"`
+	RealtimeClearingPrice  float64                `protobuf:"fixed64,12,opt,name=realtimeClearingPrice,proto3" json:"realtimeClearingPrice"`
+	DayaheadBidPower       float64                `protobuf:"fixed64,13,opt,name=dayaheadBidPower,proto3" json:"dayaheadBidPower"`
+	RealtimeBidPower       float64                `protobuf:"fixed64,14,opt,name=realtimeBidPower,proto3" json:"realtimeBidPower"`
+	ActualEnergy           float64                `protobuf:"fixed64,15,opt,name=actualEnergy,proto3" json:"actualEnergy"`
+	ActualPower            float64                `protobuf:"fixed64,16,opt,name=actualPower,proto3" json:"actualPower"`
+	CreateTime             string                 `protobuf:"bytes,17,opt,name=createTime,proto3" json:"createTime"`
+	UpdateTime             string                 `protobuf:"bytes,18,opt,name=updateTime,proto3" json:"updateTime"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *ClearingData) Reset() {
+	*x = ClearingData{}
+	mi := &file_cms_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearingData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearingData) ProtoMessage() {}
+
+func (x *ClearingData) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearingData.ProtoReflect.Descriptor instead.
+func (*ClearingData) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ClearingData) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *ClearingData) GetProvinceId() int64 {
+	if x != nil {
+		return x.ProvinceId
+	}
+	return 0
+}
+
+func (x *ClearingData) GetCompanyId() string {
+	if x != nil {
+		return x.CompanyId
+	}
+	return ""
+}
+
+func (x *ClearingData) GetCompanyName() string {
+	if x != nil {
+		return x.CompanyName
+	}
+	return ""
+}
+
+func (x *ClearingData) GetUnitId() string {
+	if x != nil {
+		return x.UnitId
+	}
+	return ""
+}
+
+func (x *ClearingData) GetUnitName() string {
+	if x != nil {
+		return x.UnitName
+	}
+	return ""
+}
+
+func (x *ClearingData) GetTargetDate() string {
+	if x != nil {
+		return x.TargetDate
+	}
+	return ""
+}
+
+func (x *ClearingData) GetTimeperiod() string {
+	if x != nil {
+		return x.Timeperiod
+	}
+	return ""
+}
+
+func (x *ClearingData) GetDayaheadClearingEnergy() float64 {
+	if x != nil {
+		return x.DayaheadClearingEnergy
+	}
+	return 0
+}
+
+func (x *ClearingData) GetDayaheadClearingPrice() float64 {
+	if x != nil {
+		return x.DayaheadClearingPrice
+	}
+	return 0
+}
+
+func (x *ClearingData) GetRealtimeClearingEnergy() float64 {
+	if x != nil {
+		return x.RealtimeClearingEnergy
+	}
+	return 0
+}
+
+func (x *ClearingData) GetRealtimeClearingPrice() float64 {
+	if x != nil {
+		return x.RealtimeClearingPrice
+	}
+	return 0
+}
+
+func (x *ClearingData) GetDayaheadBidPower() float64 {
+	if x != nil {
+		return x.DayaheadBidPower
+	}
+	return 0
+}
+
+func (x *ClearingData) GetRealtimeBidPower() float64 {
+	if x != nil {
+		return x.RealtimeBidPower
+	}
+	return 0
+}
+
+func (x *ClearingData) GetActualEnergy() float64 {
+	if x != nil {
+		return x.ActualEnergy
+	}
+	return 0
+}
+
+func (x *ClearingData) GetActualPower() float64 {
+	if x != nil {
+		return x.ActualPower
+	}
+	return 0
+}
+
+func (x *ClearingData) GetCreateTime() string {
+	if x != nil {
+		return x.CreateTime
+	}
+	return ""
+}
+
+func (x *ClearingData) GetUpdateTime() string {
+	if x != nil {
+		return x.UpdateTime
+	}
+	return ""
+}
+
+type CreateClearingDataReq struct {
+	state                  protoimpl.MessageState `protogen:"open.v1"`
+	ProvinceId             int64                  `protobuf:"varint,1,opt,name=provinceId,proto3" json:"provinceId"`
+	CompanyId              string                 `protobuf:"bytes,2,opt,name=companyId,proto3" json:"companyId"`
+	CompanyName            string                 `protobuf:"bytes,3,opt,name=companyName,proto3" json:"companyName"`
+	UnitId                 string                 `protobuf:"bytes,4,opt,name=unitId,proto3" json:"unitId"`
+	UnitName               string                 `protobuf:"bytes,5,opt,name=unitName,proto3" json:"unitName"`
+	TargetDate             string                 `protobuf:"bytes,6,opt,name=targetDate,proto3" json:"targetDate"`
+	Timeperiod             string                 `protobuf:"bytes,7,opt,name=timeperiod,proto3" json:"timeperiod"`
+	DayaheadClearingEnergy float64                `protobuf:"fixed64,8,opt,name=dayaheadClearingEnergy,proto3" json:"dayaheadClearingEnergy"`
+	DayaheadClearingPrice  float64                `protobuf:"fixed64,9,opt,name=dayaheadClearingPrice,proto3" json:"dayaheadClearingPrice"`
+	RealtimeClearingEnergy float64                `protobuf:"fixed64,10,opt,name=realtimeClearingEnergy,proto3" json:"realtimeClearingEnergy"`
+	RealtimeClearingPrice  float64                `protobuf:"fixed64,11,opt,name=realtimeClearingPrice,proto3" json:"realtimeClearingPrice"`
+	DayaheadBidPower       float64                `protobuf:"fixed64,12,opt,name=dayaheadBidPower,proto3" json:"dayaheadBidPower"`
+	RealtimeBidPower       float64                `protobuf:"fixed64,13,opt,name=realtimeBidPower,proto3" json:"realtimeBidPower"`
+	ActualEnergy           float64                `protobuf:"fixed64,14,opt,name=actualEnergy,proto3" json:"actualEnergy"`
+	ActualPower            float64                `protobuf:"fixed64,15,opt,name=actualPower,proto3" json:"actualPower"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *CreateClearingDataReq) Reset() {
+	*x = CreateClearingDataReq{}
+	mi := &file_cms_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateClearingDataReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateClearingDataReq) ProtoMessage() {}
+
+func (x *CreateClearingDataReq) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateClearingDataReq.ProtoReflect.Descriptor instead.
+func (*CreateClearingDataReq) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *CreateClearingDataReq) GetProvinceId() int64 {
+	if x != nil {
+		return x.ProvinceId
+	}
+	return 0
+}
+
+func (x *CreateClearingDataReq) GetCompanyId() string {
+	if x != nil {
+		return x.CompanyId
+	}
+	return ""
+}
+
+func (x *CreateClearingDataReq) GetCompanyName() string {
+	if x != nil {
+		return x.CompanyName
+	}
+	return ""
+}
+
+func (x *CreateClearingDataReq) GetUnitId() string {
+	if x != nil {
+		return x.UnitId
+	}
+	return ""
+}
+
+func (x *CreateClearingDataReq) GetUnitName() string {
+	if x != nil {
+		return x.UnitName
+	}
+	return ""
+}
+
+func (x *CreateClearingDataReq) GetTargetDate() string {
+	if x != nil {
+		return x.TargetDate
+	}
+	return ""
+}
+
+func (x *CreateClearingDataReq) GetTimeperiod() string {
+	if x != nil {
+		return x.Timeperiod
+	}
+	return ""
+}
+
+func (x *CreateClearingDataReq) GetDayaheadClearingEnergy() float64 {
+	if x != nil {
+		return x.DayaheadClearingEnergy
+	}
+	return 0
+}
+
+func (x *CreateClearingDataReq) GetDayaheadClearingPrice() float64 {
+	if x != nil {
+		return x.DayaheadClearingPrice
+	}
+	return 0
+}
+
+func (x *CreateClearingDataReq) GetRealtimeClearingEnergy() float64 {
+	if x != nil {
+		return x.RealtimeClearingEnergy
+	}
+	return 0
+}
+
+func (x *CreateClearingDataReq) GetRealtimeClearingPrice() float64 {
+	if x != nil {
+		return x.RealtimeClearingPrice
+	}
+	return 0
+}
+
+func (x *CreateClearingDataReq) GetDayaheadBidPower() float64 {
+	if x != nil {
+		return x.DayaheadBidPower
+	}
+	return 0
+}
+
+func (x *CreateClearingDataReq) GetRealtimeBidPower() float64 {
+	if x != nil {
+		return x.RealtimeBidPower
+	}
+	return 0
+}
+
+func (x *CreateClearingDataReq) GetActualEnergy() float64 {
+	if x != nil {
+		return x.ActualEnergy
+	}
+	return 0
+}
+
+func (x *CreateClearingDataReq) GetActualPower() float64 {
+	if x != nil {
+		return x.ActualPower
+	}
+	return 0
+}
+
+type CreateClearingDataResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateClearingDataResp) Reset() {
+	*x = CreateClearingDataResp{}
+	mi := &file_cms_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateClearingDataResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateClearingDataResp) ProtoMessage() {}
+
+func (x *CreateClearingDataResp) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateClearingDataResp.ProtoReflect.Descriptor instead.
+func (*CreateClearingDataResp) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *CreateClearingDataResp) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type UpdateClearingDataReq struct {
+	state                  protoimpl.MessageState `protogen:"open.v1"`
+	Id                     int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
+	DayaheadClearingEnergy float64                `protobuf:"fixed64,2,opt,name=dayaheadClearingEnergy,proto3" json:"dayaheadClearingEnergy"`
+	DayaheadClearingPrice  float64                `protobuf:"fixed64,3,opt,name=dayaheadClearingPrice,proto3" json:"dayaheadClearingPrice"`
+	RealtimeClearingEnergy float64                `protobuf:"fixed64,4,opt,name=realtimeClearingEnergy,proto3" json:"realtimeClearingEnergy"`
+	RealtimeClearingPrice  float64                `protobuf:"fixed64,5,opt,name=realtimeClearingPrice,proto3" json:"realtimeClearingPrice"`
+	DayaheadBidPower       float64                `protobuf:"fixed64,6,opt,name=dayaheadBidPower,proto3" json:"dayaheadBidPower"`
+	RealtimeBidPower       float64                `protobuf:"fixed64,7,opt,name=realtimeBidPower,proto3" json:"realtimeBidPower"`
+	ActualEnergy           float64                `protobuf:"fixed64,8,opt,name=actualEnergy,proto3" json:"actualEnergy"`
+	ActualPower            float64                `protobuf:"fixed64,9,opt,name=actualPower,proto3" json:"actualPower"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *UpdateClearingDataReq) Reset() {
+	*x = UpdateClearingDataReq{}
+	mi := &file_cms_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateClearingDataReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateClearingDataReq) ProtoMessage() {}
+
+func (x *UpdateClearingDataReq) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateClearingDataReq.ProtoReflect.Descriptor instead.
+func (*UpdateClearingDataReq) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *UpdateClearingDataReq) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateClearingDataReq) GetDayaheadClearingEnergy() float64 {
+	if x != nil {
+		return x.DayaheadClearingEnergy
+	}
+	return 0
+}
+
+func (x *UpdateClearingDataReq) GetDayaheadClearingPrice() float64 {
+	if x != nil {
+		return x.DayaheadClearingPrice
+	}
+	return 0
+}
+
+func (x *UpdateClearingDataReq) GetRealtimeClearingEnergy() float64 {
+	if x != nil {
+		return x.RealtimeClearingEnergy
+	}
+	return 0
+}
+
+func (x *UpdateClearingDataReq) GetRealtimeClearingPrice() float64 {
+	if x != nil {
+		return x.RealtimeClearingPrice
+	}
+	return 0
+}
+
+func (x *UpdateClearingDataReq) GetDayaheadBidPower() float64 {
+	if x != nil {
+		return x.DayaheadBidPower
+	}
+	return 0
+}
+
+func (x *UpdateClearingDataReq) GetRealtimeBidPower() float64 {
+	if x != nil {
+		return x.RealtimeBidPower
+	}
+	return 0
+}
+
+func (x *UpdateClearingDataReq) GetActualEnergy() float64 {
+	if x != nil {
+		return x.ActualEnergy
+	}
+	return 0
+}
+
+func (x *UpdateClearingDataReq) GetActualPower() float64 {
+	if x != nil {
+		return x.ActualPower
+	}
+	return 0
+}
+
+type UpdateClearingDataResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateClearingDataResp) Reset() {
+	*x = UpdateClearingDataResp{}
+	mi := &file_cms_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateClearingDataResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateClearingDataResp) ProtoMessage() {}
+
+func (x *UpdateClearingDataResp) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateClearingDataResp.ProtoReflect.Descriptor instead.
+func (*UpdateClearingDataResp) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *UpdateClearingDataResp) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+type GetClearingDataDetailReq struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClearingDataDetailReq) Reset() {
+	*x = GetClearingDataDetailReq{}
+	mi := &file_cms_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClearingDataDetailReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClearingDataDetailReq) ProtoMessage() {}
+
+func (x *GetClearingDataDetailReq) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClearingDataDetailReq.ProtoReflect.Descriptor instead.
+func (*GetClearingDataDetailReq) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetClearingDataDetailReq) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetClearingDataDetailResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ClearingData  *ClearingData          `protobuf:"bytes,1,opt,name=clearingData,proto3" json:"clearingData"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClearingDataDetailResp) Reset() {
+	*x = GetClearingDataDetailResp{}
+	mi := &file_cms_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClearingDataDetailResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClearingDataDetailResp) ProtoMessage() {}
+
+func (x *GetClearingDataDetailResp) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClearingDataDetailResp.ProtoReflect.Descriptor instead.
+func (*GetClearingDataDetailResp) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetClearingDataDetailResp) GetClearingData() *ClearingData {
+	if x != nil {
+		return x.ClearingData
+	}
+	return nil
+}
+
+type GetClearingDataListReq struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CompanyId     string                 `protobuf:"bytes,1,opt,name=companyId,proto3" json:"companyId"`
+	TargetDate    string                 `protobuf:"bytes,2,opt,name=targetDate,proto3" json:"targetDate"`
+	Page          int64                  `protobuf:"varint,3,opt,name=page,proto3" json:"page"`
+	PageSize      int64                  `protobuf:"varint,4,opt,name=pageSize,proto3" json:"pageSize"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClearingDataListReq) Reset() {
+	*x = GetClearingDataListReq{}
+	mi := &file_cms_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClearingDataListReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClearingDataListReq) ProtoMessage() {}
+
+func (x *GetClearingDataListReq) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClearingDataListReq.ProtoReflect.Descriptor instead.
+func (*GetClearingDataListReq) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetClearingDataListReq) GetCompanyId() string {
+	if x != nil {
+		return x.CompanyId
+	}
+	return ""
+}
+
+func (x *GetClearingDataListReq) GetTargetDate() string {
+	if x != nil {
+		return x.TargetDate
+	}
+	return ""
+}
+
+func (x *GetClearingDataListReq) GetPage() int64 {
+	if x != nil {
+		return x.Page
+	}
+	return 0
+}
+
+func (x *GetClearingDataListReq) GetPageSize() int64 {
+	if x != nil {
+		return x.PageSize
+	}
+	return 0
+}
+
+type GetClearingDataListResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	List          []*ClearingData        `protobuf:"bytes,1,rep,name=list,proto3" json:"list"`
+	Total         int64                  `protobuf:"varint,2,opt,name=total,proto3" json:"total"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClearingDataListResp) Reset() {
+	*x = GetClearingDataListResp{}
+	mi := &file_cms_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClearingDataListResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClearingDataListResp) ProtoMessage() {}
+
+func (x *GetClearingDataListResp) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClearingDataListResp.ProtoReflect.Descriptor instead.
+func (*GetClearingDataListResp) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetClearingDataListResp) GetList() []*ClearingData {
+	if x != nil {
+		return x.List
+	}
+	return nil
+}
+
+func (x *GetClearingDataListResp) GetTotal() int64 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
+type DeleteClearingDataReq struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteClearingDataReq) Reset() {
+	*x = DeleteClearingDataReq{}
+	mi := &file_cms_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteClearingDataReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteClearingDataReq) ProtoMessage() {}
+
+func (x *DeleteClearingDataReq) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteClearingDataReq.ProtoReflect.Descriptor instead.
+func (*DeleteClearingDataReq) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *DeleteClearingDataReq) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type DeleteClearingDataResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteClearingDataResp) Reset() {
+	*x = DeleteClearingDataResp{}
+	mi := &file_cms_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteClearingDataResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteClearingDataResp) ProtoMessage() {}
+
+func (x *DeleteClearingDataResp) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteClearingDataResp.ProtoReflect.Descriptor instead.
+func (*DeleteClearingDataResp) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *DeleteClearingDataResp) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+type BatchCreateClearingDataReq struct {
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	DataList      []*CreateClearingDataReq `protobuf:"bytes,1,rep,name=dataList,proto3" json:"dataList"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchCreateClearingDataReq) Reset() {
+	*x = BatchCreateClearingDataReq{}
+	mi := &file_cms_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchCreateClearingDataReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchCreateClearingDataReq) ProtoMessage() {}
+
+func (x *BatchCreateClearingDataReq) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchCreateClearingDataReq.ProtoReflect.Descriptor instead.
+func (*BatchCreateClearingDataReq) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *BatchCreateClearingDataReq) GetDataList() []*CreateClearingDataReq {
+	if x != nil {
+		return x.DataList
+	}
+	return nil
+}
+
+type BatchCreateClearingDataResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SuccessCount  int64                  `protobuf:"varint,1,opt,name=successCount,proto3" json:"successCount"`
+	FailedCount   int64                  `protobuf:"varint,2,opt,name=failedCount,proto3" json:"failedCount"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchCreateClearingDataResp) Reset() {
+	*x = BatchCreateClearingDataResp{}
+	mi := &file_cms_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchCreateClearingDataResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchCreateClearingDataResp) ProtoMessage() {}
+
+func (x *BatchCreateClearingDataResp) ProtoReflect() protoreflect.Message {
+	mi := &file_cms_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchCreateClearingDataResp.ProtoReflect.Descriptor instead.
+func (*BatchCreateClearingDataResp) Descriptor() ([]byte, []int) {
+	return file_cms_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *BatchCreateClearingDataResp) GetSuccessCount() int64 {
+	if x != nil {
+		return x.SuccessCount
+	}
+	return 0
+}
+
+func (x *BatchCreateClearingDataResp) GetFailedCount() int64 {
+	if x != nil {
+		return x.FailedCount
+	}
+	return 0
+}
+
 var File_cms_proto protoreflect.FileDescriptor
 
 const file_cms_proto_rawDesc = "" +
@@ -912,7 +1835,97 @@ const file_cms_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1a\n" +
 	"\bauthorId\x18\x02 \x01(\x03R\bauthorId\"-\n" +
 	"\x11DeleteArticleResp\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess2\xc0\x03\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"\xac\x05\n" +
+	"\fClearingData\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1e\n" +
+	"\n" +
+	"provinceId\x18\x02 \x01(\x03R\n" +
+	"provinceId\x12\x1c\n" +
+	"\tcompanyId\x18\x03 \x01(\tR\tcompanyId\x12 \n" +
+	"\vcompanyName\x18\x04 \x01(\tR\vcompanyName\x12\x16\n" +
+	"\x06unitId\x18\x05 \x01(\tR\x06unitId\x12\x1a\n" +
+	"\bunitName\x18\x06 \x01(\tR\bunitName\x12\x1e\n" +
+	"\n" +
+	"targetDate\x18\a \x01(\tR\n" +
+	"targetDate\x12\x1e\n" +
+	"\n" +
+	"timeperiod\x18\b \x01(\tR\n" +
+	"timeperiod\x126\n" +
+	"\x16dayaheadClearingEnergy\x18\t \x01(\x01R\x16dayaheadClearingEnergy\x124\n" +
+	"\x15dayaheadClearingPrice\x18\n" +
+	" \x01(\x01R\x15dayaheadClearingPrice\x126\n" +
+	"\x16realtimeClearingEnergy\x18\v \x01(\x01R\x16realtimeClearingEnergy\x124\n" +
+	"\x15realtimeClearingPrice\x18\f \x01(\x01R\x15realtimeClearingPrice\x12*\n" +
+	"\x10dayaheadBidPower\x18\r \x01(\x01R\x10dayaheadBidPower\x12*\n" +
+	"\x10realtimeBidPower\x18\x0e \x01(\x01R\x10realtimeBidPower\x12\"\n" +
+	"\factualEnergy\x18\x0f \x01(\x01R\factualEnergy\x12 \n" +
+	"\vactualPower\x18\x10 \x01(\x01R\vactualPower\x12\x1e\n" +
+	"\n" +
+	"createTime\x18\x11 \x01(\tR\n" +
+	"createTime\x12\x1e\n" +
+	"\n" +
+	"updateTime\x18\x12 \x01(\tR\n" +
+	"updateTime\"\xe5\x04\n" +
+	"\x15CreateClearingDataReq\x12\x1e\n" +
+	"\n" +
+	"provinceId\x18\x01 \x01(\x03R\n" +
+	"provinceId\x12\x1c\n" +
+	"\tcompanyId\x18\x02 \x01(\tR\tcompanyId\x12 \n" +
+	"\vcompanyName\x18\x03 \x01(\tR\vcompanyName\x12\x16\n" +
+	"\x06unitId\x18\x04 \x01(\tR\x06unitId\x12\x1a\n" +
+	"\bunitName\x18\x05 \x01(\tR\bunitName\x12\x1e\n" +
+	"\n" +
+	"targetDate\x18\x06 \x01(\tR\n" +
+	"targetDate\x12\x1e\n" +
+	"\n" +
+	"timeperiod\x18\a \x01(\tR\n" +
+	"timeperiod\x126\n" +
+	"\x16dayaheadClearingEnergy\x18\b \x01(\x01R\x16dayaheadClearingEnergy\x124\n" +
+	"\x15dayaheadClearingPrice\x18\t \x01(\x01R\x15dayaheadClearingPrice\x126\n" +
+	"\x16realtimeClearingEnergy\x18\n" +
+	" \x01(\x01R\x16realtimeClearingEnergy\x124\n" +
+	"\x15realtimeClearingPrice\x18\v \x01(\x01R\x15realtimeClearingPrice\x12*\n" +
+	"\x10dayaheadBidPower\x18\f \x01(\x01R\x10dayaheadBidPower\x12*\n" +
+	"\x10realtimeBidPower\x18\r \x01(\x01R\x10realtimeBidPower\x12\"\n" +
+	"\factualEnergy\x18\x0e \x01(\x01R\factualEnergy\x12 \n" +
+	"\vactualPower\x18\x0f \x01(\x01R\vactualPower\"(\n" +
+	"\x16CreateClearingDataResp\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"\xa1\x03\n" +
+	"\x15UpdateClearingDataReq\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x126\n" +
+	"\x16dayaheadClearingEnergy\x18\x02 \x01(\x01R\x16dayaheadClearingEnergy\x124\n" +
+	"\x15dayaheadClearingPrice\x18\x03 \x01(\x01R\x15dayaheadClearingPrice\x126\n" +
+	"\x16realtimeClearingEnergy\x18\x04 \x01(\x01R\x16realtimeClearingEnergy\x124\n" +
+	"\x15realtimeClearingPrice\x18\x05 \x01(\x01R\x15realtimeClearingPrice\x12*\n" +
+	"\x10dayaheadBidPower\x18\x06 \x01(\x01R\x10dayaheadBidPower\x12*\n" +
+	"\x10realtimeBidPower\x18\a \x01(\x01R\x10realtimeBidPower\x12\"\n" +
+	"\factualEnergy\x18\b \x01(\x01R\factualEnergy\x12 \n" +
+	"\vactualPower\x18\t \x01(\x01R\vactualPower\"2\n" +
+	"\x16UpdateClearingDataResp\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"*\n" +
+	"\x18GetClearingDataDetailReq\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"Q\n" +
+	"\x19GetClearingDataDetailResp\x124\n" +
+	"\fclearingData\x18\x01 \x01(\v2\x10.pb.ClearingDataR\fclearingData\"\x86\x01\n" +
+	"\x16GetClearingDataListReq\x12\x1c\n" +
+	"\tcompanyId\x18\x01 \x01(\tR\tcompanyId\x12\x1e\n" +
+	"\n" +
+	"targetDate\x18\x02 \x01(\tR\n" +
+	"targetDate\x12\x12\n" +
+	"\x04page\x18\x03 \x01(\x03R\x04page\x12\x1a\n" +
+	"\bpageSize\x18\x04 \x01(\x03R\bpageSize\"U\n" +
+	"\x17GetClearingDataListResp\x12$\n" +
+	"\x04list\x18\x01 \x03(\v2\x10.pb.ClearingDataR\x04list\x12\x14\n" +
+	"\x05total\x18\x02 \x01(\x03R\x05total\"'\n" +
+	"\x15DeleteClearingDataReq\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"2\n" +
+	"\x16DeleteClearingDataResp\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"S\n" +
+	"\x1aBatchCreateClearingDataReq\x125\n" +
+	"\bdataList\x18\x01 \x03(\v2\x19.pb.CreateClearingDataReqR\bdataList\"c\n" +
+	"\x1bBatchCreateClearingDataResp\x12\"\n" +
+	"\fsuccessCount\x18\x01 \x01(\x03R\fsuccessCount\x12 \n" +
+	"\vfailedCount\x18\x02 \x01(\x03R\vfailedCount2\xa9\a\n" +
 	"\x03cms\x12<\n" +
 	"\rcreateArticle\x12\x14.pb.CreateArticleReq\x1a\x15.pb.CreateArticleResp\x12<\n" +
 	"\rupdateArticle\x12\x14.pb.UpdateArticleReq\x1a\x15.pb.UpdateArticleResp\x12?\n" +
@@ -920,7 +1933,13 @@ const file_cms_proto_rawDesc = "" +
 	"\x10getArticleDetail\x12\x17.pb.GetArticleDetailReq\x1a\x18.pb.GetArticleDetailResp\x12?\n" +
 	"\x0egetArticleList\x12\x15.pb.GetArticleListReq\x1a\x16.pb.GetArticleListResp\x126\n" +
 	"\vlikeArticle\x12\x12.pb.LikeArticleReq\x1a\x13.pb.LikeArticleResp\x12<\n" +
-	"\rdeleteArticle\x12\x14.pb.DeleteArticleReq\x1a\x15.pb.DeleteArticleRespB\x06Z\x04./pbb\x06proto3"
+	"\rdeleteArticle\x12\x14.pb.DeleteArticleReq\x1a\x15.pb.DeleteArticleResp\x12K\n" +
+	"\x12createClearingData\x12\x19.pb.CreateClearingDataReq\x1a\x1a.pb.CreateClearingDataResp\x12K\n" +
+	"\x12updateClearingData\x12\x19.pb.UpdateClearingDataReq\x1a\x1a.pb.UpdateClearingDataResp\x12T\n" +
+	"\x15getClearingDataDetail\x12\x1c.pb.GetClearingDataDetailReq\x1a\x1d.pb.GetClearingDataDetailResp\x12N\n" +
+	"\x13getClearingDataList\x12\x1a.pb.GetClearingDataListReq\x1a\x1b.pb.GetClearingDataListResp\x12K\n" +
+	"\x12deleteClearingData\x12\x19.pb.DeleteClearingDataReq\x1a\x1a.pb.DeleteClearingDataResp\x12Z\n" +
+	"\x17batchCreateClearingData\x12\x1e.pb.BatchCreateClearingDataReq\x1a\x1f.pb.BatchCreateClearingDataRespB\x06Z\x04./pbb\x06proto3"
 
 var (
 	file_cms_proto_rawDescOnce sync.Once
@@ -934,46 +1953,74 @@ func file_cms_proto_rawDescGZIP() []byte {
 	return file_cms_proto_rawDescData
 }
 
-var file_cms_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_cms_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
 var file_cms_proto_goTypes = []any{
-	(*Article)(nil),              // 0: pb.Article
-	(*CreateArticleReq)(nil),     // 1: pb.CreateArticleReq
-	(*CreateArticleResp)(nil),    // 2: pb.CreateArticleResp
-	(*UpdateArticleReq)(nil),     // 3: pb.UpdateArticleReq
-	(*UpdateArticleResp)(nil),    // 4: pb.UpdateArticleResp
-	(*PublishArticleReq)(nil),    // 5: pb.PublishArticleReq
-	(*PublishArticleResp)(nil),   // 6: pb.PublishArticleResp
-	(*GetArticleDetailReq)(nil),  // 7: pb.GetArticleDetailReq
-	(*GetArticleDetailResp)(nil), // 8: pb.GetArticleDetailResp
-	(*GetArticleListReq)(nil),    // 9: pb.GetArticleListReq
-	(*GetArticleListResp)(nil),   // 10: pb.GetArticleListResp
-	(*LikeArticleReq)(nil),       // 11: pb.LikeArticleReq
-	(*LikeArticleResp)(nil),      // 12: pb.LikeArticleResp
-	(*DeleteArticleReq)(nil),     // 13: pb.DeleteArticleReq
-	(*DeleteArticleResp)(nil),    // 14: pb.DeleteArticleResp
+	(*Article)(nil),                     // 0: pb.Article
+	(*CreateArticleReq)(nil),            // 1: pb.CreateArticleReq
+	(*CreateArticleResp)(nil),           // 2: pb.CreateArticleResp
+	(*UpdateArticleReq)(nil),            // 3: pb.UpdateArticleReq
+	(*UpdateArticleResp)(nil),           // 4: pb.UpdateArticleResp
+	(*PublishArticleReq)(nil),           // 5: pb.PublishArticleReq
+	(*PublishArticleResp)(nil),          // 6: pb.PublishArticleResp
+	(*GetArticleDetailReq)(nil),         // 7: pb.GetArticleDetailReq
+	(*GetArticleDetailResp)(nil),        // 8: pb.GetArticleDetailResp
+	(*GetArticleListReq)(nil),           // 9: pb.GetArticleListReq
+	(*GetArticleListResp)(nil),          // 10: pb.GetArticleListResp
+	(*LikeArticleReq)(nil),              // 11: pb.LikeArticleReq
+	(*LikeArticleResp)(nil),             // 12: pb.LikeArticleResp
+	(*DeleteArticleReq)(nil),            // 13: pb.DeleteArticleReq
+	(*DeleteArticleResp)(nil),           // 14: pb.DeleteArticleResp
+	(*ClearingData)(nil),                // 15: pb.ClearingData
+	(*CreateClearingDataReq)(nil),       // 16: pb.CreateClearingDataReq
+	(*CreateClearingDataResp)(nil),      // 17: pb.CreateClearingDataResp
+	(*UpdateClearingDataReq)(nil),       // 18: pb.UpdateClearingDataReq
+	(*UpdateClearingDataResp)(nil),      // 19: pb.UpdateClearingDataResp
+	(*GetClearingDataDetailReq)(nil),    // 20: pb.GetClearingDataDetailReq
+	(*GetClearingDataDetailResp)(nil),   // 21: pb.GetClearingDataDetailResp
+	(*GetClearingDataListReq)(nil),      // 22: pb.GetClearingDataListReq
+	(*GetClearingDataListResp)(nil),     // 23: pb.GetClearingDataListResp
+	(*DeleteClearingDataReq)(nil),       // 24: pb.DeleteClearingDataReq
+	(*DeleteClearingDataResp)(nil),      // 25: pb.DeleteClearingDataResp
+	(*BatchCreateClearingDataReq)(nil),  // 26: pb.BatchCreateClearingDataReq
+	(*BatchCreateClearingDataResp)(nil), // 27: pb.BatchCreateClearingDataResp
 }
 var file_cms_proto_depIdxs = []int32{
 	0,  // 0: pb.GetArticleDetailResp.article:type_name -> pb.Article
 	0,  // 1: pb.GetArticleListResp.list:type_name -> pb.Article
-	1,  // 2: pb.cms.createArticle:input_type -> pb.CreateArticleReq
-	3,  // 3: pb.cms.updateArticle:input_type -> pb.UpdateArticleReq
-	5,  // 4: pb.cms.publishArticle:input_type -> pb.PublishArticleReq
-	7,  // 5: pb.cms.getArticleDetail:input_type -> pb.GetArticleDetailReq
-	9,  // 6: pb.cms.getArticleList:input_type -> pb.GetArticleListReq
-	11, // 7: pb.cms.likeArticle:input_type -> pb.LikeArticleReq
-	13, // 8: pb.cms.deleteArticle:input_type -> pb.DeleteArticleReq
-	2,  // 9: pb.cms.createArticle:output_type -> pb.CreateArticleResp
-	4,  // 10: pb.cms.updateArticle:output_type -> pb.UpdateArticleResp
-	6,  // 11: pb.cms.publishArticle:output_type -> pb.PublishArticleResp
-	8,  // 12: pb.cms.getArticleDetail:output_type -> pb.GetArticleDetailResp
-	10, // 13: pb.cms.getArticleList:output_type -> pb.GetArticleListResp
-	12, // 14: pb.cms.likeArticle:output_type -> pb.LikeArticleResp
-	14, // 15: pb.cms.deleteArticle:output_type -> pb.DeleteArticleResp
-	9,  // [9:16] is the sub-list for method output_type
-	2,  // [2:9] is the sub-list for method input_type
-	2,  // [2:2] is the sub-list for extension type_name
-	2,  // [2:2] is the sub-list for extension extendee
-	0,  // [0:2] is the sub-list for field type_name
+	15, // 2: pb.GetClearingDataDetailResp.clearingData:type_name -> pb.ClearingData
+	15, // 3: pb.GetClearingDataListResp.list:type_name -> pb.ClearingData
+	16, // 4: pb.BatchCreateClearingDataReq.dataList:type_name -> pb.CreateClearingDataReq
+	1,  // 5: pb.cms.createArticle:input_type -> pb.CreateArticleReq
+	3,  // 6: pb.cms.updateArticle:input_type -> pb.UpdateArticleReq
+	5,  // 7: pb.cms.publishArticle:input_type -> pb.PublishArticleReq
+	7,  // 8: pb.cms.getArticleDetail:input_type -> pb.GetArticleDetailReq
+	9,  // 9: pb.cms.getArticleList:input_type -> pb.GetArticleListReq
+	11, // 10: pb.cms.likeArticle:input_type -> pb.LikeArticleReq
+	13, // 11: pb.cms.deleteArticle:input_type -> pb.DeleteArticleReq
+	16, // 12: pb.cms.createClearingData:input_type -> pb.CreateClearingDataReq
+	18, // 13: pb.cms.updateClearingData:input_type -> pb.UpdateClearingDataReq
+	20, // 14: pb.cms.getClearingDataDetail:input_type -> pb.GetClearingDataDetailReq
+	22, // 15: pb.cms.getClearingDataList:input_type -> pb.GetClearingDataListReq
+	24, // 16: pb.cms.deleteClearingData:input_type -> pb.DeleteClearingDataReq
+	26, // 17: pb.cms.batchCreateClearingData:input_type -> pb.BatchCreateClearingDataReq
+	2,  // 18: pb.cms.createArticle:output_type -> pb.CreateArticleResp
+	4,  // 19: pb.cms.updateArticle:output_type -> pb.UpdateArticleResp
+	6,  // 20: pb.cms.publishArticle:output_type -> pb.PublishArticleResp
+	8,  // 21: pb.cms.getArticleDetail:output_type -> pb.GetArticleDetailResp
+	10, // 22: pb.cms.getArticleList:output_type -> pb.GetArticleListResp
+	12, // 23: pb.cms.likeArticle:output_type -> pb.LikeArticleResp
+	14, // 24: pb.cms.deleteArticle:output_type -> pb.DeleteArticleResp
+	17, // 25: pb.cms.createClearingData:output_type -> pb.CreateClearingDataResp
+	19, // 26: pb.cms.updateClearingData:output_type -> pb.UpdateClearingDataResp
+	21, // 27: pb.cms.getClearingDataDetail:output_type -> pb.GetClearingDataDetailResp
+	23, // 28: pb.cms.getClearingDataList:output_type -> pb.GetClearingDataListResp
+	25, // 29: pb.cms.deleteClearingData:output_type -> pb.DeleteClearingDataResp
+	27, // 30: pb.cms.batchCreateClearingData:output_type -> pb.BatchCreateClearingDataResp
+	18, // [18:31] is the sub-list for method output_type
+	5,  // [5:18] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_cms_proto_init() }
@@ -987,7 +2034,7 @@ func file_cms_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_cms_proto_rawDesc), len(file_cms_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   15,
+			NumMessages:   28,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

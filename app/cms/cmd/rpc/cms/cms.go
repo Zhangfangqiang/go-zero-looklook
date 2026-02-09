@@ -14,21 +14,34 @@ import (
 )
 
 type (
-	Article              = pb.Article
-	CreateArticleReq     = pb.CreateArticleReq
-	CreateArticleResp    = pb.CreateArticleResp
-	DeleteArticleReq     = pb.DeleteArticleReq
-	DeleteArticleResp    = pb.DeleteArticleResp
-	GetArticleDetailReq  = pb.GetArticleDetailReq
-	GetArticleDetailResp = pb.GetArticleDetailResp
-	GetArticleListReq    = pb.GetArticleListReq
-	GetArticleListResp   = pb.GetArticleListResp
-	LikeArticleReq       = pb.LikeArticleReq
-	LikeArticleResp      = pb.LikeArticleResp
-	PublishArticleReq    = pb.PublishArticleReq
-	PublishArticleResp   = pb.PublishArticleResp
-	UpdateArticleReq     = pb.UpdateArticleReq
-	UpdateArticleResp    = pb.UpdateArticleResp
+	Article                     = pb.Article
+	BatchCreateClearingDataReq  = pb.BatchCreateClearingDataReq
+	BatchCreateClearingDataResp = pb.BatchCreateClearingDataResp
+	ClearingData                = pb.ClearingData
+	CreateArticleReq            = pb.CreateArticleReq
+	CreateArticleResp           = pb.CreateArticleResp
+	CreateClearingDataReq       = pb.CreateClearingDataReq
+	CreateClearingDataResp      = pb.CreateClearingDataResp
+	DeleteArticleReq            = pb.DeleteArticleReq
+	DeleteArticleResp           = pb.DeleteArticleResp
+	DeleteClearingDataReq       = pb.DeleteClearingDataReq
+	DeleteClearingDataResp      = pb.DeleteClearingDataResp
+	GetArticleDetailReq         = pb.GetArticleDetailReq
+	GetArticleDetailResp        = pb.GetArticleDetailResp
+	GetArticleListReq           = pb.GetArticleListReq
+	GetArticleListResp          = pb.GetArticleListResp
+	GetClearingDataDetailReq    = pb.GetClearingDataDetailReq
+	GetClearingDataDetailResp   = pb.GetClearingDataDetailResp
+	GetClearingDataListReq      = pb.GetClearingDataListReq
+	GetClearingDataListResp     = pb.GetClearingDataListResp
+	LikeArticleReq              = pb.LikeArticleReq
+	LikeArticleResp             = pb.LikeArticleResp
+	PublishArticleReq           = pb.PublishArticleReq
+	PublishArticleResp          = pb.PublishArticleResp
+	UpdateArticleReq            = pb.UpdateArticleReq
+	UpdateArticleResp           = pb.UpdateArticleResp
+	UpdateClearingDataReq       = pb.UpdateClearingDataReq
+	UpdateClearingDataResp      = pb.UpdateClearingDataResp
 
 	Cms interface {
 		CreateArticle(ctx context.Context, in *CreateArticleReq, opts ...grpc.CallOption) (*CreateArticleResp, error)
@@ -38,6 +51,12 @@ type (
 		GetArticleList(ctx context.Context, in *GetArticleListReq, opts ...grpc.CallOption) (*GetArticleListResp, error)
 		LikeArticle(ctx context.Context, in *LikeArticleReq, opts ...grpc.CallOption) (*LikeArticleResp, error)
 		DeleteArticle(ctx context.Context, in *DeleteArticleReq, opts ...grpc.CallOption) (*DeleteArticleResp, error)
+		CreateClearingData(ctx context.Context, in *CreateClearingDataReq, opts ...grpc.CallOption) (*CreateClearingDataResp, error)
+		UpdateClearingData(ctx context.Context, in *UpdateClearingDataReq, opts ...grpc.CallOption) (*UpdateClearingDataResp, error)
+		GetClearingDataDetail(ctx context.Context, in *GetClearingDataDetailReq, opts ...grpc.CallOption) (*GetClearingDataDetailResp, error)
+		GetClearingDataList(ctx context.Context, in *GetClearingDataListReq, opts ...grpc.CallOption) (*GetClearingDataListResp, error)
+		DeleteClearingData(ctx context.Context, in *DeleteClearingDataReq, opts ...grpc.CallOption) (*DeleteClearingDataResp, error)
+		BatchCreateClearingData(ctx context.Context, in *BatchCreateClearingDataReq, opts ...grpc.CallOption) (*BatchCreateClearingDataResp, error)
 	}
 
 	defaultCms struct {
@@ -84,4 +103,34 @@ func (m *defaultCms) LikeArticle(ctx context.Context, in *LikeArticleReq, opts .
 func (m *defaultCms) DeleteArticle(ctx context.Context, in *DeleteArticleReq, opts ...grpc.CallOption) (*DeleteArticleResp, error) {
 	client := pb.NewCmsClient(m.cli.Conn())
 	return client.DeleteArticle(ctx, in, opts...)
+}
+
+func (m *defaultCms) CreateClearingData(ctx context.Context, in *CreateClearingDataReq, opts ...grpc.CallOption) (*CreateClearingDataResp, error) {
+	client := pb.NewCmsClient(m.cli.Conn())
+	return client.CreateClearingData(ctx, in, opts...)
+}
+
+func (m *defaultCms) UpdateClearingData(ctx context.Context, in *UpdateClearingDataReq, opts ...grpc.CallOption) (*UpdateClearingDataResp, error) {
+	client := pb.NewCmsClient(m.cli.Conn())
+	return client.UpdateClearingData(ctx, in, opts...)
+}
+
+func (m *defaultCms) GetClearingDataDetail(ctx context.Context, in *GetClearingDataDetailReq, opts ...grpc.CallOption) (*GetClearingDataDetailResp, error) {
+	client := pb.NewCmsClient(m.cli.Conn())
+	return client.GetClearingDataDetail(ctx, in, opts...)
+}
+
+func (m *defaultCms) GetClearingDataList(ctx context.Context, in *GetClearingDataListReq, opts ...grpc.CallOption) (*GetClearingDataListResp, error) {
+	client := pb.NewCmsClient(m.cli.Conn())
+	return client.GetClearingDataList(ctx, in, opts...)
+}
+
+func (m *defaultCms) DeleteClearingData(ctx context.Context, in *DeleteClearingDataReq, opts ...grpc.CallOption) (*DeleteClearingDataResp, error) {
+	client := pb.NewCmsClient(m.cli.Conn())
+	return client.DeleteClearingData(ctx, in, opts...)
+}
+
+func (m *defaultCms) BatchCreateClearingData(ctx context.Context, in *BatchCreateClearingDataReq, opts ...grpc.CallOption) (*BatchCreateClearingDataResp, error) {
+	client := pb.NewCmsClient(m.cli.Conn())
+	return client.BatchCreateClearingData(ctx, in, opts...)
 }

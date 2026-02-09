@@ -19,13 +19,19 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Cms_CreateArticle_FullMethodName    = "/pb.cms/createArticle"
-	Cms_UpdateArticle_FullMethodName    = "/pb.cms/updateArticle"
-	Cms_PublishArticle_FullMethodName   = "/pb.cms/publishArticle"
-	Cms_GetArticleDetail_FullMethodName = "/pb.cms/getArticleDetail"
-	Cms_GetArticleList_FullMethodName   = "/pb.cms/getArticleList"
-	Cms_LikeArticle_FullMethodName      = "/pb.cms/likeArticle"
-	Cms_DeleteArticle_FullMethodName    = "/pb.cms/deleteArticle"
+	Cms_CreateArticle_FullMethodName           = "/pb.cms/createArticle"
+	Cms_UpdateArticle_FullMethodName           = "/pb.cms/updateArticle"
+	Cms_PublishArticle_FullMethodName          = "/pb.cms/publishArticle"
+	Cms_GetArticleDetail_FullMethodName        = "/pb.cms/getArticleDetail"
+	Cms_GetArticleList_FullMethodName          = "/pb.cms/getArticleList"
+	Cms_LikeArticle_FullMethodName             = "/pb.cms/likeArticle"
+	Cms_DeleteArticle_FullMethodName           = "/pb.cms/deleteArticle"
+	Cms_CreateClearingData_FullMethodName      = "/pb.cms/createClearingData"
+	Cms_UpdateClearingData_FullMethodName      = "/pb.cms/updateClearingData"
+	Cms_GetClearingDataDetail_FullMethodName   = "/pb.cms/getClearingDataDetail"
+	Cms_GetClearingDataList_FullMethodName     = "/pb.cms/getClearingDataList"
+	Cms_DeleteClearingData_FullMethodName      = "/pb.cms/deleteClearingData"
+	Cms_BatchCreateClearingData_FullMethodName = "/pb.cms/batchCreateClearingData"
 )
 
 // CmsClient is the client API for Cms service.
@@ -41,6 +47,12 @@ type CmsClient interface {
 	GetArticleList(ctx context.Context, in *GetArticleListReq, opts ...grpc.CallOption) (*GetArticleListResp, error)
 	LikeArticle(ctx context.Context, in *LikeArticleReq, opts ...grpc.CallOption) (*LikeArticleResp, error)
 	DeleteArticle(ctx context.Context, in *DeleteArticleReq, opts ...grpc.CallOption) (*DeleteArticleResp, error)
+	CreateClearingData(ctx context.Context, in *CreateClearingDataReq, opts ...grpc.CallOption) (*CreateClearingDataResp, error)
+	UpdateClearingData(ctx context.Context, in *UpdateClearingDataReq, opts ...grpc.CallOption) (*UpdateClearingDataResp, error)
+	GetClearingDataDetail(ctx context.Context, in *GetClearingDataDetailReq, opts ...grpc.CallOption) (*GetClearingDataDetailResp, error)
+	GetClearingDataList(ctx context.Context, in *GetClearingDataListReq, opts ...grpc.CallOption) (*GetClearingDataListResp, error)
+	DeleteClearingData(ctx context.Context, in *DeleteClearingDataReq, opts ...grpc.CallOption) (*DeleteClearingDataResp, error)
+	BatchCreateClearingData(ctx context.Context, in *BatchCreateClearingDataReq, opts ...grpc.CallOption) (*BatchCreateClearingDataResp, error)
 }
 
 type cmsClient struct {
@@ -121,6 +133,66 @@ func (c *cmsClient) DeleteArticle(ctx context.Context, in *DeleteArticleReq, opt
 	return out, nil
 }
 
+func (c *cmsClient) CreateClearingData(ctx context.Context, in *CreateClearingDataReq, opts ...grpc.CallOption) (*CreateClearingDataResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateClearingDataResp)
+	err := c.cc.Invoke(ctx, Cms_CreateClearingData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cmsClient) UpdateClearingData(ctx context.Context, in *UpdateClearingDataReq, opts ...grpc.CallOption) (*UpdateClearingDataResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateClearingDataResp)
+	err := c.cc.Invoke(ctx, Cms_UpdateClearingData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cmsClient) GetClearingDataDetail(ctx context.Context, in *GetClearingDataDetailReq, opts ...grpc.CallOption) (*GetClearingDataDetailResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClearingDataDetailResp)
+	err := c.cc.Invoke(ctx, Cms_GetClearingDataDetail_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cmsClient) GetClearingDataList(ctx context.Context, in *GetClearingDataListReq, opts ...grpc.CallOption) (*GetClearingDataListResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClearingDataListResp)
+	err := c.cc.Invoke(ctx, Cms_GetClearingDataList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cmsClient) DeleteClearingData(ctx context.Context, in *DeleteClearingDataReq, opts ...grpc.CallOption) (*DeleteClearingDataResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteClearingDataResp)
+	err := c.cc.Invoke(ctx, Cms_DeleteClearingData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cmsClient) BatchCreateClearingData(ctx context.Context, in *BatchCreateClearingDataReq, opts ...grpc.CallOption) (*BatchCreateClearingDataResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BatchCreateClearingDataResp)
+	err := c.cc.Invoke(ctx, Cms_BatchCreateClearingData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CmsServer is the server API for Cms service.
 // All implementations must embed UnimplementedCmsServer
 // for forward compatibility.
@@ -134,6 +206,12 @@ type CmsServer interface {
 	GetArticleList(context.Context, *GetArticleListReq) (*GetArticleListResp, error)
 	LikeArticle(context.Context, *LikeArticleReq) (*LikeArticleResp, error)
 	DeleteArticle(context.Context, *DeleteArticleReq) (*DeleteArticleResp, error)
+	CreateClearingData(context.Context, *CreateClearingDataReq) (*CreateClearingDataResp, error)
+	UpdateClearingData(context.Context, *UpdateClearingDataReq) (*UpdateClearingDataResp, error)
+	GetClearingDataDetail(context.Context, *GetClearingDataDetailReq) (*GetClearingDataDetailResp, error)
+	GetClearingDataList(context.Context, *GetClearingDataListReq) (*GetClearingDataListResp, error)
+	DeleteClearingData(context.Context, *DeleteClearingDataReq) (*DeleteClearingDataResp, error)
+	BatchCreateClearingData(context.Context, *BatchCreateClearingDataReq) (*BatchCreateClearingDataResp, error)
 	mustEmbedUnimplementedCmsServer()
 }
 
@@ -164,6 +242,24 @@ func (UnimplementedCmsServer) LikeArticle(context.Context, *LikeArticleReq) (*Li
 }
 func (UnimplementedCmsServer) DeleteArticle(context.Context, *DeleteArticleReq) (*DeleteArticleResp, error) {
 	return nil, status.Error(codes.Unimplemented, "method DeleteArticle not implemented")
+}
+func (UnimplementedCmsServer) CreateClearingData(context.Context, *CreateClearingDataReq) (*CreateClearingDataResp, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateClearingData not implemented")
+}
+func (UnimplementedCmsServer) UpdateClearingData(context.Context, *UpdateClearingDataReq) (*UpdateClearingDataResp, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateClearingData not implemented")
+}
+func (UnimplementedCmsServer) GetClearingDataDetail(context.Context, *GetClearingDataDetailReq) (*GetClearingDataDetailResp, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClearingDataDetail not implemented")
+}
+func (UnimplementedCmsServer) GetClearingDataList(context.Context, *GetClearingDataListReq) (*GetClearingDataListResp, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClearingDataList not implemented")
+}
+func (UnimplementedCmsServer) DeleteClearingData(context.Context, *DeleteClearingDataReq) (*DeleteClearingDataResp, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteClearingData not implemented")
+}
+func (UnimplementedCmsServer) BatchCreateClearingData(context.Context, *BatchCreateClearingDataReq) (*BatchCreateClearingDataResp, error) {
+	return nil, status.Error(codes.Unimplemented, "method BatchCreateClearingData not implemented")
 }
 func (UnimplementedCmsServer) mustEmbedUnimplementedCmsServer() {}
 func (UnimplementedCmsServer) testEmbeddedByValue()             {}
@@ -312,6 +408,114 @@ func _Cms_DeleteArticle_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Cms_CreateClearingData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateClearingDataReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CmsServer).CreateClearingData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Cms_CreateClearingData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CmsServer).CreateClearingData(ctx, req.(*CreateClearingDataReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Cms_UpdateClearingData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateClearingDataReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CmsServer).UpdateClearingData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Cms_UpdateClearingData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CmsServer).UpdateClearingData(ctx, req.(*UpdateClearingDataReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Cms_GetClearingDataDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClearingDataDetailReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CmsServer).GetClearingDataDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Cms_GetClearingDataDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CmsServer).GetClearingDataDetail(ctx, req.(*GetClearingDataDetailReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Cms_GetClearingDataList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClearingDataListReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CmsServer).GetClearingDataList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Cms_GetClearingDataList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CmsServer).GetClearingDataList(ctx, req.(*GetClearingDataListReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Cms_DeleteClearingData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteClearingDataReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CmsServer).DeleteClearingData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Cms_DeleteClearingData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CmsServer).DeleteClearingData(ctx, req.(*DeleteClearingDataReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Cms_BatchCreateClearingData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchCreateClearingDataReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CmsServer).BatchCreateClearingData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Cms_BatchCreateClearingData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CmsServer).BatchCreateClearingData(ctx, req.(*BatchCreateClearingDataReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Cms_ServiceDesc is the grpc.ServiceDesc for Cms service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -346,6 +550,30 @@ var Cms_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "deleteArticle",
 			Handler:    _Cms_DeleteArticle_Handler,
+		},
+		{
+			MethodName: "createClearingData",
+			Handler:    _Cms_CreateClearingData_Handler,
+		},
+		{
+			MethodName: "updateClearingData",
+			Handler:    _Cms_UpdateClearingData_Handler,
+		},
+		{
+			MethodName: "getClearingDataDetail",
+			Handler:    _Cms_GetClearingDataDetail_Handler,
+		},
+		{
+			MethodName: "getClearingDataList",
+			Handler:    _Cms_GetClearingDataList_Handler,
+		},
+		{
+			MethodName: "deleteClearingData",
+			Handler:    _Cms_DeleteClearingData_Handler,
+		},
+		{
+			MethodName: "batchCreateClearingData",
+			Handler:    _Cms_BatchCreateClearingData_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

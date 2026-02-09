@@ -4,7 +4,6 @@ option go_package = "./pb";
 
 package pb;
 
-//model
 message Article {
   int64 id = 1;
   string title = 2;
@@ -17,7 +16,6 @@ message Article {
   int64 status = 9;
 }
 
-//req 、resp
 message CreateArticleReq {
   string title = 1;
   string content = 2;
@@ -80,6 +78,98 @@ message DeleteArticleResp {
   bool success = 1;
 }
 
+
+message ClearingData {
+  int64 id = 1;
+  int64 provinceId = 2;
+  string companyId = 3;
+  string companyName = 4;
+  string unitId = 5;
+  string unitName = 6;
+  string targetDate = 7;
+  string timeperiod = 8;
+  double dayaheadClearingEnergy = 9;
+  double dayaheadClearingPrice = 10;
+  double realtimeClearingEnergy = 11;
+  double realtimeClearingPrice = 12;
+  double dayaheadBidPower = 13;
+  double realtimeBidPower = 14;
+  double actualEnergy = 15;
+  double actualPower = 16;
+  string createTime = 17;
+  string updateTime = 18;
+}
+
+message CreateClearingDataReq {
+  int64 provinceId = 1;
+  string companyId = 2;
+  string companyName = 3;
+  string unitId = 4;
+  string unitName = 5;
+  string targetDate = 6;
+  string timeperiod = 7;
+  double dayaheadClearingEnergy = 8;
+  double dayaheadClearingPrice = 9;
+  double realtimeClearingEnergy = 10;
+  double realtimeClearingPrice = 11;
+  double dayaheadBidPower = 12;
+  double realtimeBidPower = 13;
+  double actualEnergy = 14;
+  double actualPower = 15;
+}
+message CreateClearingDataResp {
+  int64 id = 1;
+}
+
+message UpdateClearingDataReq {
+  int64 id = 1;
+  double dayaheadClearingEnergy = 2;
+  double dayaheadClearingPrice = 3;
+  double realtimeClearingEnergy = 4;
+  double realtimeClearingPrice = 5;
+  double dayaheadBidPower = 6;
+  double realtimeBidPower = 7;
+  double actualEnergy = 8;
+  double actualPower = 9;
+}
+message UpdateClearingDataResp {
+  bool success = 1;
+}
+
+message GetClearingDataDetailReq {
+  int64 id = 1;
+}
+message GetClearingDataDetailResp {
+  ClearingData clearingData = 1;
+}
+
+message GetClearingDataListReq {
+  string companyId = 1;
+  string targetDate = 2;
+  int64 page = 3;
+  int64 pageSize = 4;
+}
+message GetClearingDataListResp {
+  repeated ClearingData list = 1;
+  int64 total = 2;
+}
+
+message DeleteClearingDataReq {
+  int64 id = 1;
+}
+message DeleteClearingDataResp {
+  bool success = 1;
+}
+
+message BatchCreateClearingDataReq {
+  repeated CreateClearingDataReq dataList = 1;
+}
+message BatchCreateClearingDataResp {
+  int64 successCount = 1;
+  int64 failedCount = 2;
+}
+
+
 //service
 service cms {
   rpc createArticle(CreateArticleReq) returns(CreateArticleResp);
@@ -89,4 +179,11 @@ service cms {
   rpc getArticleList(GetArticleListReq) returns(GetArticleListResp);
   rpc likeArticle(LikeArticleReq) returns(LikeArticleResp);
   rpc deleteArticle(DeleteArticleReq) returns(DeleteArticleResp);
+
+  rpc createClearingData(CreateClearingDataReq) returns(CreateClearingDataResp);
+  rpc updateClearingData(UpdateClearingDataReq) returns(UpdateClearingDataResp);
+  rpc getClearingDataDetail(GetClearingDataDetailReq) returns(GetClearingDataDetailResp);
+  rpc getClearingDataList(GetClearingDataListReq) returns(GetClearingDataListResp);
+  rpc deleteClearingData(DeleteClearingDataReq) returns(DeleteClearingDataResp);
+  rpc batchCreateClearingData(BatchCreateClearingDataReq) returns(BatchCreateClearingDataResp);
 }
