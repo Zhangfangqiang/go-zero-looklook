@@ -1,0 +1,95 @@
+syntax = "v1"
+
+info (
+	title:   "CMS内容管理服务"
+	desc:    "CMS内容管理服务"
+	author:  "CMS"
+	email:   "cms@example.com"
+	version: "v1"
+)
+
+import (
+	"article/article.api"
+	"clearing/clearing.api"
+)
+
+// ========== 不需要登录的接口 ==========
+@server (
+	prefix: cms/v1
+	group:  article
+)
+service cms {
+	@doc "获取文章列表"
+	@handler articleList
+	post /article/list (ArticleListReq) returns (ArticleListResp)
+
+	@doc "获取文章详情"
+	@handler articleDetail
+	post /article/detail (ArticleDetailReq) returns (ArticleDetailResp)
+}
+
+@server (
+	prefix: cms/v1
+	group:  clearing
+)
+service cms {
+	@doc "获取出清数据列表"
+	@handler clearingDataList
+	post /clearing/list (ClearingDataListReq) returns (ClearingDataListResp)
+
+	@doc "获取出清数据详情"
+	@handler clearingDataDetail
+	post /clearing/detail (ClearingDataDetailReq) returns (ClearingDataDetailResp)
+}
+
+// ========== 需要登录的接口 ==========
+@server (
+	prefix: cms/v1
+	group:  article
+	jwt:    JwtAuth
+)
+service cms {
+	@doc "创建文章"
+	@handler createArticle
+	post /article/create (CreateArticleReq) returns (CreateArticleResp)
+
+	@doc "更新文章"
+	@handler updateArticle
+	post /article/update (UpdateArticleReq) returns (UpdateArticleResp)
+
+	@doc "发布文章"
+	@handler publishArticle
+	post /article/publish (PublishArticleReq) returns (PublishArticleResp)
+
+	@doc "删除文章"
+	@handler deleteArticle
+	post /article/delete (DeleteArticleReq) returns (DeleteArticleResp)
+
+	@doc "点赞文章"
+	@handler likeArticle
+	post /article/like (LikeArticleReq) returns (LikeArticleResp)
+}
+
+@server (
+	prefix: cms/v1
+	group:  clearing
+	jwt:    JwtAuth
+)
+service cms {
+	@doc "创建出清数据"
+	@handler createClearingData
+	post /clearing/create (CreateClearingDataReq) returns (CreateClearingDataResp)
+
+	@doc "批量创建出清数据"
+	@handler batchCreateClearingData
+	post /clearing/batch-create (BatchCreateClearingDataReq) returns (BatchCreateClearingDataResp)
+
+	@doc "更新出清数据"
+	@handler updateClearingData
+	post /clearing/update (UpdateClearingDataReq) returns (UpdateClearingDataResp)
+
+	@doc "删除出清数据"
+	@handler deleteClearingData
+	post /clearing/delete (DeleteClearingDataReq) returns (DeleteClearingDataResp)
+}
+

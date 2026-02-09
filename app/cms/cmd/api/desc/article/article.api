@@ -1,0 +1,93 @@
+syntax = "v1"
+
+info(
+	title: "文章实例"
+	desc: "文章实例"
+	author: "CMS"
+	email: "cms@example.com"
+)
+
+type Article {
+	Id          int64  `json:"id"`
+	Title       string `json:"title"`
+	Content     string `json:"content"`
+	PublishTime string `json:"publishTime"`
+	Category    string `json:"category"`
+	LikeCount   int64  `json:"likeCount"`
+	AuthorId    int64  `json:"authorId"`
+	CoverImage  string `json:"coverImage"`
+	Status      int64  `json:"status"`
+}
+
+type (
+	CreateArticleReq {
+		Title      string `json:"title"`
+		Content    string `json:"content"`
+		Category   string `json:"category"`
+		CoverImage string `json:"coverImage,optional"`
+	}
+	CreateArticleResp {
+		Id int64 `json:"id"`
+	}
+)
+
+type (
+	UpdateArticleReq {
+		Id         int64  `json:"id"`
+		Title      string `json:"title,optional"`
+		Content    string `json:"content,optional"`
+		Category   string `json:"category,optional"`
+		CoverImage string `json:"coverImage,optional"`
+	}
+	UpdateArticleResp {
+		Success bool `json:"success"`
+	}
+)
+
+type (
+	PublishArticleReq {
+		Id int64 `json:"id"`
+	}
+	PublishArticleResp {
+		Success bool `json:"success"`
+	}
+)
+
+type (
+	ArticleDetailReq {
+		Id int64 `json:"id"`
+	}
+	ArticleDetailResp {
+		Article Article `json:"article"`
+	}
+)
+
+type (
+	ArticleListReq {
+		Category string `json:"category,optional"`
+		Page     int64  `json:"page,default=1"`
+		PageSize int64  `json:"pageSize,default=10"`
+	}
+	ArticleListResp {
+		List  []Article `json:"list"`
+		Total int64     `json:"total"`
+	}
+)
+
+type (
+	LikeArticleReq {
+		Id int64 `json:"id"`
+	}
+	LikeArticleResp {
+		LikeCount int64 `json:"likeCount"`
+	}
+)
+
+type (
+	DeleteArticleReq {
+		Id int64 `json:"id"`
+	}
+	DeleteArticleResp {
+		Success bool `json:"success"`
+	}
+)
